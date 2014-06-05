@@ -39,14 +39,14 @@ int main(int argc, const char **argv)
 			if(do_argb_conversion)
 			{
 				//if doing argb conversion the frame data will be exactly the right size so just set directly
-				textures[texidx].SetPixels(frame_data);
+				textures[texidx].SetPixels(frame_data,do_argb_conversion);
 			}
 			else
 			{
 				//if not converting argb the data will be the wrong size and look weird, put copy it in
 				//via a temporary buffer just so we can observe something happening!
 				memcpy(tmpbuff,frame_data,frame_sz);
-				textures[texidx].SetPixels(tmpbuff);
+				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
 			}
 			cam->EndReadFrame(texidx);
 		}

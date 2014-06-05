@@ -52,7 +52,7 @@ public:
 	~GfxTexture() {}
 
 	bool Create(int width, int height, const void* data = NULL);
-	void SetPixels(const void* data);
+	void SetPixels(const void* data, bool user_argb_conversion);
 	GLuint GetId() { return Id; }
 };
 
