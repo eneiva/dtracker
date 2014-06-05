@@ -12,7 +12,7 @@ char tmpbuff[MAIN_TEXTURE_WIDTH*MAIN_TEXTURE_HEIGHT*4];
 int main(int argc, const char **argv)
 {
 	//should the camera convert frame data from yuv to argb automatically?
-	bool do_argb_conversion = true;
+	bool do_argb_conversion = false;
 
 	//how many detail levels (1 = just the capture res, > 1 goes down by half each level, 4 max)
 	int num_levels = 4;
