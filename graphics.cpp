@@ -346,7 +346,7 @@ void GfxTexture::SetPixels(const void* data, bool use_argb_conversion)
 	if(use_argb_conversion)
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, Width, Height, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	else
-		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, Width, Height, GL_YUV, GL_UNSIGNED_BYTE, data);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, Width, Height, GL_LUMINANCE, GL_UNSIGNED_BYTE, data);
 	check();
 	glBindTexture(GL_TEXTURE_2D, 0);
 	check();
