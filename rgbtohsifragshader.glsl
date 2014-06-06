@@ -3,7 +3,7 @@ uniform sampler2D tex;
 
 struct HSI{
 	float h,s,v;
-}
+};
 
 uniform HSI hsiTexel;
 
