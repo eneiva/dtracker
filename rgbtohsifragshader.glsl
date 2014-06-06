@@ -7,5 +7,5 @@ void main(void)
 	 * assign the new value for the gl_FragColor variable.
 	 */
     vec4 texelVal = texture2D(tex,tcoord);
-    gl_FragColor = texelVal.gbra;
+    gl_FragColor = texelVal.brga;
 }
