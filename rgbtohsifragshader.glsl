@@ -27,7 +27,7 @@ void main(void)
 	
 	//Convert from RGB to HSV	
 	v = colorMax;
-	if (colorMax != 0)
+	if (colorMax != 0.f)
 	{
 		s = (colorMax - colorMin) / colorMax;
 	}
