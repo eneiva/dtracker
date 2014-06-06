@@ -8,9 +8,12 @@ void main(void)
 	 */
     
     vec4 color = texture2D(tex,tcoord);
+    
     float r, g, b, a, delta;
 	float colorMax, colorMin;
-	float h=0; float s=0; float v=0;
+	float h=0;
+	float s=0;
+	float v=0;
 	r = color.r;
 	g = color.g;
 	b = color.b;
