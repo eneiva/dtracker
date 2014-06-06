@@ -1,5 +1,12 @@
 varying vec2 tcoord;
 uniform sampler2D tex;
+
+struct HSI{
+	float h,s,v;
+}
+
+uniform HSI hsiTexel;
+
 void main(void) 
 {
 	/* texture2D returns a vec4 type. It could return for and rgba image the values for the r-g-b-a channels.
@@ -9,11 +16,12 @@ void main(void)
     
     vec4 color = texture2D(tex,tcoord);
     
+    
     float r, g, b, a, delta;
 	float colorMax, colorMin;
-	float h(0);
-	float s=0.x;
-	float v=0.x;
+	hsiTexel.h=0;
+	hsiTexel.s=0;
+	hsiTexel.v=0;
 	r = color.r;
 	g = color.g;
 	b = color.b;
