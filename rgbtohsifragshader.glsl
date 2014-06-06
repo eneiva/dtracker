@@ -11,10 +11,9 @@ void main(void)
     
     float r, g, b, a, delta;
 	float colorMax, colorMin;
-	float h;
-	h=0;
-	float s=0;
-	float v=0;
+	float h=0.x;
+	float s=0.x;
+	float v=0.x;
 	r = color.r;
 	g = color.g;
 	b = color.b;
