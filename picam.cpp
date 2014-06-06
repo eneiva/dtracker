@@ -12,13 +12,16 @@ char tmpbuff[MAIN_TEXTURE_WIDTH*MAIN_TEXTURE_HEIGHT*4];
 int main(int argc, const char **argv)
 {
 	//should the camera convert frame data from yuv to argb automatically?
-	bool do_argb_conversion = false;
+	bool do_argb_conversion = true;
+
+	//if true the shader loaded will convert the result to HSI, if false then depends of the do_argb_conversion value
+	bool convertToHSI = true;
 
 	//how many detail levels (1 = just the capture res, > 1 goes down by half each level, 4 max)
 	int num_levels = 4;
 
 	//init graphics and the camera
-	InitGraphics();
+	InitGraphics(convertToHSI);
 	CCamera* cam = StartCamera(MAIN_TEXTURE_WIDTH, MAIN_TEXTURE_HEIGHT,30,num_levels,do_argb_conversion);
 
 	//create 4 textures of decreasing size

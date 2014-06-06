@@ -22,7 +22,7 @@ GfxShader GSimpleFS;
 GfxProgram GSimpleProg;
 GLuint GQuadVertexBuffer;
 
-void InitGraphics()
+void InitGraphics(bool convertToHSI)
 {
 	bcm_host_init();
 	int32_t success = 0;
@@ -122,7 +122,10 @@ void InitGraphics()
 
 	//load the test shaders
 	GSimpleVS.LoadVertexShader("simplevertshader.glsl");
-	GSimpleFS.LoadFragmentShader("simplefragshader.glsl");
+	if(convertToHSI)
+		GSimpleFS.LoadFragmentShader("rgbtohsifragshader.glsl");
+	else
+		GSimpleFS.LoadFragmentShader("simplefragshader.glsl");
 	GSimpleProg.Create(&GSimpleVS,&GSimpleFS);
 	check();
 	glUseProgram(GSimpleProg.GetId());
@@ -201,9 +204,16 @@ bool GfxShader::LoadVertexShader(const char* filename)
 	fclose(f);
 
 	//now create and compile the shader
+	//create the ID of the shader (remember to always use GL data types like GLchar)
 	GlShaderType = GL_VERTEX_SHADER;
+	//create the container for the shader and return the ID to the newly, just created shader
 	Id = glCreateShader(GlShaderType);
+	/*here the text representing the shader code is loaded and passed into the function. Multiple
+	 * strings can be passed instead of just one string file but I don't know how to do it.
+	 */
 	glShaderSource(Id, 1, (const GLchar**)&Src, 0);
+	//compile the given shader, DO NOT FORGET TO CHECK AFTER to get errors use glGetShaderInfoLog
+	//if a faulty shader is used, OpenGL might reset to fixed pipeline or CRASH
 	glCompileShader(Id);
 	check();
 
@@ -240,9 +250,16 @@ bool GfxShader::LoadFragmentShader(const char* filename)
 	fclose(f);
 
 	//now create and compile the shader
+	//create the ID of the shader (remember to always use GL data types like GLchar)
 	GlShaderType = GL_FRAGMENT_SHADER;
+	//create the container for the shader and return the ID to the newly, just created shader
 	Id = glCreateShader(GlShaderType);
+	/*here the text representing the shader code is loaded and passed into the function. Multiple
+	 * strings can be passed instead of just one string file but I don't know how to do it.
+	 */
 	glShaderSource(Id, 1, (const GLchar**)&Src, 0);
+	//compile the given shader, DO NOT FORGET TO CHECK AFTER to get errors use glGetShaderInfoLog
+	//if a faulty shader is used, OpenGL might reset to fixed pipeline or CRASH
 	glCompileShader(Id);
 	check();
 

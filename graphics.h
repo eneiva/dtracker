@@ -4,7 +4,7 @@
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
 
-void InitGraphics();
+void InitGraphics(bool convertToHSI);
 void ReleaseGraphics();
 void BeginFrame();
 void EndFrame();
