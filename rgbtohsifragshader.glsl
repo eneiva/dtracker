@@ -7,8 +7,10 @@ void main(void)
 	 * assign the new value for the gl_FragColor variable.
 	 */
     vec4 texelVal = texture2D(tex,tcoord);
-    if(texelVal.g > 0.5f)
-    	gl_FragColor = vec4(0,1.f,0,1.f);
-    else
+    if(texelVal.g > 0.5){
+    	gl_FragColor = vec4(0,1,0,1);
+    }
+    else{
     	gl_FragColor = texelVal.brga;
+    }
 }
