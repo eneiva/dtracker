@@ -5,7 +5,7 @@ struct HSI{
 	float h,s,v;
 };
 
-uniform HSI hsiTexel;
+HSI hsiTexel;
 
 void main(void) 
 {
