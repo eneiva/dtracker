@@ -38,7 +38,7 @@ bool rgb2HSIThreshold(vec4 color){
 		{
 			h = 4.0 + (r-g)/delta;
 		}
-		h *= 60;
+		h *= 60.0;
 		//apply the offsets from the spinners multiply it by the alpha channel from the diffuse map.
 		h += (hOffset * a);
 		s += (sOffset * a);
