@@ -59,7 +59,7 @@ float rgb2HSIThreshold(vec4 color){
 		return 1.0;
 	else
 		return 0.0;
-	*/
+	
 }
 
 void main(void) 
