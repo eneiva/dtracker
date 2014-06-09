@@ -23,7 +23,7 @@ bool rgb2HSIThreshold(vec4 color){
 	{
 		s = (colorMax - colorMin) / colorMax;
 	}
-	if (s != 0)
+	if (s != 0.0)
 	{
 		delta = colorMax - colorMin;
 		if (r == colorMax)
