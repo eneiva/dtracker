@@ -70,9 +70,9 @@ void main(void)
     vec4 color = texture2D(tex,tcoord);
     
     if(rgb2HSIThreshold(color)){
-    	gl_FragColor = vec4(1,1,1,1);
+    	gl_FragColor = vec4(1,0.5,1,1);
     }else{
-    	gl_FragColor = vec4(0,0,0,1);
+    	gl_FragColor = vec4(0,0,0,0.5);
 	}
     
     //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
