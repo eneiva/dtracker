@@ -2,6 +2,7 @@
  * An attempt of face (skin) detection algorithm. The resulting pixels with value of 1 will represent a skin pixel, 0 otherwise.
  * The value for the threshold of the 'h' channel was based on the article "Driver Fatigue Detection Based on Eye Tracking and Dynamic Template Matching"
  * by Wen-Bing Horng, Chih-Yuan Chen and Yi Chang.
+ * The threshold value for the hue ('h') was adjusted. This code uses a different color conversion method than the used previously.
  */
 
 varying vec2 tcoord;
@@ -27,6 +28,7 @@ float rgb2HSIThreshold(vec4 color){
 		if(h<0.0) h=0.0;
 		if(b>g) h=2.0*pi-h;
 	}
+	//here depending on the threshold values, more os less noise will be detected in the output image.
 	if(h>pi/18.0 && h<pi/6.0)
 		return 1.0;
 	else
@@ -43,14 +45,7 @@ void main(void)
     vec4 color = texture2D(tex,tcoord);
     float result = rgb2HSIThreshold(color);
     gl_FragColor = vec4(result,result,result,1);
-    /*
-    if(rgb2HSIThreshold(color)){
-    	gl_FragColor = vec4(1,0.5,1,1);
-    }else{
-    	gl_FragColor = vec4(0,0,0,0.5);
-	}
-	*/
-    
+
     //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
     /*
     vec4 texelVal = texture2D(tex,tcoord);
