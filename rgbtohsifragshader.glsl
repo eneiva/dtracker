@@ -1,7 +1,7 @@
 varying vec2 tcoord;
 uniform sampler2D tex;
 
-bool rgb2HSIThreshold(vec4 color){
+float rgb2HSIThreshold(vec4 color){
 	float r, g, b, a, delta;
 	float colorMax, colorMin;
 	float h,s,v;
@@ -54,10 +54,13 @@ bool rgb2HSIThreshold(vec4 color){
 		if (v<0.0) {v = 0.0;}
 		if (v>1.0) {v = 1.0;}
 	}
+	return (h/360.0);
+	/*
 	if(h>10.0 || h<45.0)
 		return true;
 	else
 		return false;
+	*/
 }
 
 void main(void) 
@@ -68,12 +71,15 @@ void main(void)
 	 */
     
     vec4 color = texture2D(tex,tcoord);
-    
+    h = rgb2HSIThreshold(color);
+    gl_FragColor = vec4(h,h,h,1);
+    /*
     if(rgb2HSIThreshold(color)){
     	gl_FragColor = vec4(1,0.5,1,1);
     }else{
     	gl_FragColor = vec4(0,0,0,0.5);
 	}
+	*/
     
     //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
     /*
