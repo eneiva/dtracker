@@ -40,9 +40,10 @@ bool rgb2HSIThreshold(vec4 color){
 		}
 		h *= 60.0;
 		//apply the offsets from the spinners multiply it by the alpha channel from the diffuse map.
-		h += (hOffset * a);
-		s += (sOffset * a);
-		v += (vOffset * a);
+		//THIS OFFSET VALUE COULD NOT BE FOUND, THAT'S WHY THE FOLLOWING LINES ARE COMMENTED
+		//h += (hOffset * a);
+		//s += (sOffset * a);
+		//v += (vOffset * a);
 		//Make sure that the values are not out of range after the offset
 		if (h<0) {h += 360;}
 		if (h>360) {h -= 360;}
