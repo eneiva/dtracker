@@ -1,3 +1,9 @@
+/*
+ * An attempt of face (skin) detection algorithm. The resulting pixels with value of 1 will represent a skin pixel, 0 otherwise.
+ * The value for the threshold of the 'h' channel was based on the article "Driver Fatigue Detection Based on Eye Tracking and Dynamic Template Matching"
+ * by Wen-Bing Horng, Chih-Yuan Chen and Yi Chang.
+ */
+
 varying vec2 tcoord;
 uniform sampler2D tex;
 
