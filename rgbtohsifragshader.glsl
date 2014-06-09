@@ -42,7 +42,7 @@ void main(void)
     
     vec4 color = texture2D(tex,tcoord);
     float result = rgb2HSIThreshold(color);
-    gl_FragColor = vec4(result,result,result,1);
+    gl_FragColor = vec4(result,0,0,1);
     /*
     if(rgb2HSIThreshold(color)){
     	gl_FragColor = vec4(1,0.5,1,1);
