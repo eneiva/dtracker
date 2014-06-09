@@ -25,8 +25,9 @@ float rgb2HSIThreshold(vec4 color){
 	h=(1.0/cos(upper/lower));
 	
 	if(b>g)
-		//h-=360.0;
-		h=1.0;
+		h-=360.0;
+	else
+		h=1;
 	return h/360.0;
 	
 	/*
