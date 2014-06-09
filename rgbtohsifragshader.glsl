@@ -19,7 +19,7 @@ bool rgb2HSIThreshold(vec4 color){
 	
 	//Convert from RGB to HSV	
 	v = colorMax;
-	if (colorMax != 0.f)
+	if (colorMax != 0)
 	{
 		s = (colorMax - colorMin) / colorMax;
 	}
