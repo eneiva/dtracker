@@ -29,7 +29,7 @@ float rgb2HSIThreshold(vec4 color){
 	else
 		h=1.0;
 	//return h/360.0;
-	return 0.0;
+	return h;
 	
 	/*
 	if(h>10.0 && h<45.0)
