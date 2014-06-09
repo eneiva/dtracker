@@ -10,7 +10,26 @@ void main(void)
     
     vec4 color = texture2D(tex,tcoord);
     
-    float r, g, b, a, delta;
+    if(rgb2HSIThreshold(color)){
+    	gl_FragColor = vec4(1,1,1,1);
+    }else{
+    	gl_FragColor = vec4(0,0,0,1);
+	}
+    
+    //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
+    /*
+    vec4 texelVal = texture2D(tex,tcoord);
+    if(texelVal.g > 0.5){
+    	gl_FragColor = vec4(0,1,0,1);
+    }
+    else{
+    	gl_FragColor = texelVal.brga;
+    }
+    */
+}
+
+bool rgb2HSIThreshold(vec4 color){
+	float r, g, b, a, delta;
 	float colorMax, colorMin;
 	float h,s,v;
 	h=vec4(0,0,0,0).x;
@@ -59,21 +78,8 @@ void main(void)
 		if (v<0.0) {v = 0.0;}
 		if (v>1.0) {v = 1.0;}
 	}
-    
-    if(h>10 && h<45){
-    	gl_FragColor = vec4(1,1,1,1);
-    }else{
-    	gl_FragColor = vec4(0,0,0,1);
-	}
-    
-    //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
-    /*
-    vec4 texelVal = texture2D(tex,tcoord);
-    if(texelVal.g > 0.5){
-    	gl_FragColor = vec4(0,1,0,1);
-    }
-    else{
-    	gl_FragColor = texelVal.brga;
-    }
-    */
+	if(h>10 || h<45)
+		return true;
+	else
+		return false;
 }
