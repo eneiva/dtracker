@@ -1,33 +1,6 @@
 varying vec2 tcoord;
 uniform sampler2D tex;
 
-void main(void) 
-{
-	/* texture2D returns a vec4 type. It could return for and rgba image the values for the r-g-b-a channels.
-	 * Therefore, problably to change for the HSI color space  changes must be made in this return value, and then
-	 * assign the new value for the gl_FragColor variable.
-	 */
-    
-    vec4 color = texture2D(tex,tcoord);
-    
-    if(rgb2HSIThreshold(color)){
-    	gl_FragColor = vec4(1,1,1,1);
-    }else{
-    	gl_FragColor = vec4(0,0,0,1);
-	}
-    
-    //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
-    /*
-    vec4 texelVal = texture2D(tex,tcoord);
-    if(texelVal.g > 0.5){
-    	gl_FragColor = vec4(0,1,0,1);
-    }
-    else{
-    	gl_FragColor = texelVal.brga;
-    }
-    */
-}
-
 bool rgb2HSIThreshold(vec4 color){
 	float r, g, b, a, delta;
 	float colorMax, colorMin;
@@ -82,4 +55,31 @@ bool rgb2HSIThreshold(vec4 color){
 		return true;
 	else
 		return false;
+}
+
+void main(void) 
+{
+	/* texture2D returns a vec4 type. It could return for and rgba image the values for the r-g-b-a channels.
+	 * Therefore, problably to change for the HSI color space  changes must be made in this return value, and then
+	 * assign the new value for the gl_FragColor variable.
+	 */
+    
+    vec4 color = texture2D(tex,tcoord);
+    
+    if(rgb2HSIThreshold(color)){
+    	gl_FragColor = vec4(1,1,1,1);
+    }else{
+    	gl_FragColor = vec4(0,0,0,1);
+	}
+    
+    //SAMPLE CODE HERE, DO NOT ERASE UNTIL FINAL SHADER CODE IS WORKING PROPERLY
+    /*
+    vec4 texelVal = texture2D(tex,tcoord);
+    if(texelVal.g > 0.5){
+    	gl_FragColor = vec4(0,1,0,1);
+    }
+    else{
+    	gl_FragColor = texelVal.brga;
+    }
+    */
 }
