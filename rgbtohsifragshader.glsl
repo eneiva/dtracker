@@ -10,24 +10,25 @@ uniform sampler2D tex;
 float rgb2HSIThreshold(vec4 color){
 	float r, g, b, a;
 	float h,s,v;
+	float pi = 3.14159265359;
 	h=vec4(0,0,0,0).x;
 	r = color.r;
 	g = color.g;
 	b = color.b;
 	a = color.a;
 	
-	//r=r/(r+g+b);
-	//g=g/(r+g+b);
-	//b=b/(r+g+b);
+	r=r/(r+g+b);
+	g=g/(r+g+b);
+	b=b/(r+g+b);
 	//Convert from RGB to HSV	
 	float upper = 0.5*((r-g)+(r-b));
 	float lower = sqrt(pow((r-g),2.0) + (r-b)*(g-b));
 	h=(1.0/cos(upper/lower));
 	
 	if(b>g)
-		h-=360.0;
+		h-=2*pi;
 	
-	if(h<85.0)
+	if(h<(pi/4.0))
 		return 1.0;
 	else
 		return 0.0;
