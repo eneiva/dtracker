@@ -25,19 +25,12 @@ float rgb2HSIThreshold(vec4 color){
 	h=(1.0/cos(upper/lower));
 	
 	if(b>g)
-		//h-=360.0;
-		h=0.0;
-	else
-		h=1.0;
-	//return h/360.0;
-	return h;
+		h-=360.0;
 	
-	/*
 	if(h>10.0 && h<45.0)
 		return 1.0;
 	else
 		return 0.0;
-		*/
 }
 
 void main(void) 
