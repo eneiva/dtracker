@@ -24,14 +24,14 @@ float rgb2HSIThreshold(vec4 color){
 	if(r==g && g==b){
 		h=0.0;
 	}else{
-		float w=0.5*(r-g+r-b)/sqrt((r-g)*(r-g)+(r-b)+(g-b));
+		float w=0.5*(r-g+r-b)/sqrt((r-g)*(r-g)+(r-b)*(g-b));
 		if(w>1.0) w=1.0;
 		if(w<-1.0) w=-1.0;
 		h=acos(w);
 		if(h<0.0) h=0.0;
 		if(b>g) h=2.0*pi-h;
 	}
-	if(h<pi/4.0)
+	if(h>pi)
 		return 1.0;
 	else
 		return 0.0;
