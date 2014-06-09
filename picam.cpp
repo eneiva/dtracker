@@ -18,7 +18,7 @@ int main(int argc, const char **argv)
 	bool convertToHSI = true;
 
 	//how many detail levels (1 = just the capture res, > 1 goes down by half each level, 4 max)
-	int num_levels = 4;
+	int num_levels = 1;
 
 	//init graphics and the camera
 	InitGraphics(convertToHSI);
