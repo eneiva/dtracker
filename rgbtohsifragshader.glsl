@@ -19,7 +19,7 @@ float rgb2HSIThreshold(vec4 color){
 	//Convert from RGB to HSV	
 	float upper = (1.0/2.0)*((r-g)+(r-b));
 	float lower = sqrt(pow((r-g),2.0) + (r-b)*(g-b));
-	h=(1/cos(upper/lower));
+	h=(1.0/cos(upper/lower));
 	
 	if(b>g)
 		h-=360.0;
