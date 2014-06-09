@@ -45,14 +45,14 @@ bool rgb2HSIThreshold(vec4 color){
 		//s += (sOffset * a);
 		//v += (vOffset * a);
 		//Make sure that the values are not out of range after the offset
-		if (h<0) {h += 360;}
-		if (h>360) {h -= 360;}
+		if (h<0.0) {h += 360;}
+		if (h>360.0) {h -= 360;}
 		if (s<0.0) {s = 0.0;}
 		if (s>1.0) {s = 1.0;}
 		if (v<0.0) {v = 0.0;}
 		if (v>1.0) {v = 1.0;}
 	}
-	if(h>10 || h<45)
+	if(h>10.0 || h<45.0)
 		return true;
 	else
 		return false;
