@@ -54,12 +54,11 @@ float rgb2HSIThreshold(vec4 color){
 		if (v<0.0) {v = 0.0;}
 		if (v>1.0) {v = 1.0;}
 	}
-	return (h/360.0);
-	/*
-	if(h>10.0 || h<45.0)
-		return true;
+	//if(h>10.0 || h<45.0)
+	if(h>180.0)
+		return 1.0;
 	else
-		return false;
+		return 0.0;
 	*/
 }
 
@@ -72,7 +71,7 @@ void main(void)
     
     vec4 color = texture2D(tex,tcoord);
     float h = rgb2HSIThreshold(color);
-    gl_FragColor = vec4(h,0,0,1);
+    gl_FragColor = vec4(h,h,h,0);
     /*
     if(rgb2HSIThreshold(color)){
     	gl_FragColor = vec4(1,0.5,1,1);
