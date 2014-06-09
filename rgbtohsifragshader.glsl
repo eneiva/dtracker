@@ -17,9 +17,9 @@ float rgb2HSIThreshold(vec4 color){
 	b = color.b;
 	a = color.a;
 	
-	r/=(r+g+b);
-	g/=(r+g+b);
-	b/=(r+g+b);
+	//r/=(r+g+b);
+	//g/=(r+g+b);
+	//b/=(r+g+b);
 	
 	if(r==g && g==b){
 		h=0.0;
