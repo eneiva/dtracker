@@ -17,6 +17,9 @@ float rgb2HSIThreshold(vec4 color){
 	g = color.g;
 	b = color.b;
 	a = color.a;
+	r/=(r+g+b);
+	g/=(r+g+b);
+	b/=(r+g+b);
 	
 	if(r==g && g==b){
 		h=0.0;
@@ -29,7 +32,7 @@ float rgb2HSIThreshold(vec4 color){
 		if(b>g) h=2.0*pi-h;
 	}
 	//here depending on the threshold values, more os less noise will be detected in the output image.
-	if(h>pi/18.0 && h<pi/5.0)
+	if(h>0.174532925 && h<0.785392163)
 		return 1.0;
 	else
 		return 0.0;
