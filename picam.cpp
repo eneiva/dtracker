@@ -50,7 +50,7 @@ int main(int argc, const char **argv)
 				//via a temporary buffer just so we can observe something happening!
 				memcpy(tmpbuff,frame_data,frame_sz);
 				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
-				print("new texture being set");
+				printf("new texture being set");
 			}
 			cam->EndReadFrame(texidx);
 		}
