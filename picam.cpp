@@ -3,8 +3,8 @@
 #include "camera.h"
 #include "graphics.h"
 
-#define MAIN_TEXTURE_WIDTH 1024
-#define MAIN_TEXTURE_HEIGHT 1024
+#define MAIN_TEXTURE_WIDTH 600
+#define MAIN_TEXTURE_HEIGHT 600
 
 char tmpbuff[MAIN_TEXTURE_WIDTH*MAIN_TEXTURE_HEIGHT*4];
 
