@@ -43,6 +43,7 @@ int main(int argc, const char **argv)
 			{
 				//if doing argb conversion the frame data will be exactly the right size so just set directly
 				textures[texidx].SetPixels(frame_data,do_argb_conversion);
+				printf("converting to argb, new texture being set");
 			}
 			else
 			{
@@ -50,7 +51,7 @@ int main(int argc, const char **argv)
 				//via a temporary buffer just so we can observe something happening!
 				memcpy(tmpbuff,frame_data,frame_sz);
 				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
-				printf("new texture being set");
+				printf(" NOT converting to argb, new texture being set");
 			}
 			cam->EndReadFrame(texidx);
 		}
