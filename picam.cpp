@@ -54,11 +54,10 @@ int main(int argc, const char **argv)
 				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
 				//printf(" NOT converting to argb, new texture being set\n");
 			}
-			for(int i = 0; i<10;i++){
-				printf("pixel %d, valor %f",i,frame_data[i]);
-				if(i==9)
-					printf("\n");
-			}
+			//TEST
+			void *texData;
+			glReadPixels(0,0,512,512,GL_LUMINANCE,GL_INT,texData);
+
 			cam->EndReadFrame(texidx);
 		}
 
