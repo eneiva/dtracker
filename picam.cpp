@@ -39,7 +39,7 @@ int main(int argc, const char **argv)
 		const void* frame_data; int frame_sz;
 		if(cam->BeginReadFrame(texidx,frame_data,frame_sz))
 		{
-			printf("frame size:")
+			printf("frame size:");
 			printf("%d \n",frame_sz);
 			if(do_argb_conversion)
 			{
