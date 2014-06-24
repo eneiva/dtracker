@@ -3,8 +3,8 @@
 #include "camera.h"
 #include "graphics.h"
 
-#define MAIN_TEXTURE_WIDTH 600
-#define MAIN_TEXTURE_HEIGHT 600
+#define MAIN_TEXTURE_WIDTH 512
+#define MAIN_TEXTURE_HEIGHT 512
 
 char tmpbuff[MAIN_TEXTURE_WIDTH*MAIN_TEXTURE_HEIGHT*4];
 
@@ -50,6 +50,7 @@ int main(int argc, const char **argv)
 				//via a temporary buffer just so we can observe something happening!
 				memcpy(tmpbuff,frame_data,frame_sz);
 				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
+				print("new texture being set");
 			}
 			cam->EndReadFrame(texidx);
 		}
