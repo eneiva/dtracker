@@ -55,7 +55,7 @@ int main(int argc, const char **argv)
 				//printf(" NOT converting to argb, new texture being set\n");
 			}
 			for(int i = 0; i<10;i++){
-				printf("pixel %d, valor %d",i,frame_data[i]);
+				printf("pixel %d, valor %f",i,frame_data[i]);
 				if(i==9)
 					printf("\n");
 			}
