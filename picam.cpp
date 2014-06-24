@@ -39,8 +39,7 @@ int main(int argc, const char **argv)
 		const void* frame_data; int frame_sz;
 		if(cam->BeginReadFrame(texidx,frame_data,frame_sz))
 		{
-			printf("frame size:");
-			printf("%d \n",frame_sz);
+			printf("frame size: %d \n",frame_sz);
 			if(do_argb_conversion)
 			{
 				//if doing argb conversion the frame data will be exactly the right size so just set directly
@@ -54,6 +53,11 @@ int main(int argc, const char **argv)
 				memcpy(tmpbuff,frame_data,frame_sz);
 				textures[texidx].SetPixels(tmpbuff,do_argb_conversion);
 				//printf(" NOT converting to argb, new texture being set\n");
+			}
+			for(int i = 0; i<10;i++){
+				printf("pixel %d, valor %d",i,frame_data[i]);
+				if(i==9)
+					printf("\n");
 			}
 			cam->EndReadFrame(texidx);
 		}
