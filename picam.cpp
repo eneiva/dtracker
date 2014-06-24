@@ -39,7 +39,8 @@ int main(int argc, const char **argv)
 		const void* frame_data; int frame_sz;
 		if(cam->BeginReadFrame(texidx,frame_data,frame_sz))
 		{
-			printf("framze size: %d",frame_sz);
+			printf("frame size:")
+			printf("%d \n",frame_sz);
 			if(do_argb_conversion)
 			{
 				//if doing argb conversion the frame data will be exactly the right size so just set directly
