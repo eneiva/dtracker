@@ -56,7 +56,7 @@ int main(int argc, const char **argv)
 			}
 			//TEST
 			void *texData;
-			glReadPixels(0,0,512,512,GL_LUMINANCE,GL_INT,texData);
+			//glReadPixels(0,0,512,512,GL_LUMINANCE,GL_INT,texData);
 			printf("data '0': %f",texData[1]);
 			cam->EndReadFrame(texidx);
 		}
